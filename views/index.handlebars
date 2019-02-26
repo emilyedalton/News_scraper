@@ -1,1 +1,11 @@
     <h2>THIS IS THE NEWS!</h2>
+    
+<ul>
+      {{#each notes}}
+      <h3>Title</h3><p>{{this.title}} 
+     <h3>Summary:</h3><p>{{this.note}}</p>
+      </p>
+       {{/each}}
+      </ul>
+     
+        

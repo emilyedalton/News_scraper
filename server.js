@@ -41,15 +41,15 @@ app.get("/scrape", function(req, res) {
       var $ = cheerio.load(response.data);
   
       // Now, we grab every h2 within an article tag, and do the following:
-      $(".trb_outfit_list_headline").each(function(i, element) {
+      $(".trb_outfit_group_list_item_body").each(function(i, element) {
         // Save an empty result object
         var result = {};
   
         // Add the text and href of every link, and save them as properties of the result object
   
-         result.title = $(this).children().text();
+         result.title = $(this).find(".trb_outfit_relatedListTitle").text();
          result.link ="<a href =https://www.chicagotribune.com"+$(this).find("a").attr("href")+"></a>";
-         result.subject =$(this).siblings().text();
+         result.subject =$(this).find(".trb_outfit_group_list_item_brief").text();
         // result.title = $(this)
         //   .children("a")
         //   .text();

@@ -1,12 +1,25 @@
+      <div class="container">
+
     <h2>THIS IS THE NEWS!</h2>
-    
+ 
 <ul>
       {{#each articles}}
       <h3>Title</h3><p>{{this.title}} 
           <h3>Link</h3>{{this.link}}
      <h3>Summary:</h3><p>{{this.subject}}</p>
+     <h3>Comments:</h3> <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          <label for="textarea1">Textarea</label>
+        </div>
+      </div>
+    </form>
+  </div>
+  
       </p>
        {{/each}}
       </ul>
-     
+     </div>
         

@@ -48,7 +48,7 @@ app.get("/scrape", function(req, res) {
         // Add the text and href of every link, and save them as properties of the result object
   
          result.title = $(this).children().text();
-         result.link = $(this).find("a").attr("href");
+         result.link ="<a href =https://www.chicagotribune.com"+$(this).find("a").attr("href")+"></a>";
          result.subject =$(this).siblings().text();
         // result.title = $(this)
         //   .children("a")

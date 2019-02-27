@@ -6,14 +6,11 @@ const express = require("express");
  db = require("../models");
 
 
- // A GET route for scraping the echoJS website
+ // GET route for scraping 
 app.get("/scrape", function(req, res) {
-    // First, we grab the body of the html with axios
     axios.get("http://www.chicagotribune.com").then(function(response) {
-      // Then, we load that into cheerio and save it to $ for a shorthand selector
       var $ = cheerio.load(response.data);
   
-      // Now, we grab every h2 within an article tag, and do the following:
       $(".trb_outfit_group_list_item_body").each(function(i, element) {
         // Save an empty result object
         var result = {};

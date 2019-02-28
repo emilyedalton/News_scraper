@@ -9,11 +9,12 @@
     <h2>THIS IS THE NEWS!</h2>
  <div id ="newsDiv">
 <ul>
-    <button id = "button">hi</button>
       {{#each articles}}
       <h3>Title</h3><p>{{this.title}} 
-          <h3>Link</h3>{{this.link}}
-     <h3>Summary:</h3><p>{{this.subject}}</p>
+          <h3>Link</h3>
+          <a href="https://www.chicagotribune.com{{this.link}}"target="_blank">Read</a>
+     <h3>Summary:</h3><p>{{this.subject}}</p><button data-id="{{this._id}}"class ="saved">Save</button>
+
      <h3>Comments:</h3> <div class="row">
     <form class="col s12">
       <div class="row">

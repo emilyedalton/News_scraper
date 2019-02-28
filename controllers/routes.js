@@ -18,9 +18,9 @@ app.get("/scrape", function(req, res) {
         // Add the text and href of every link, and save them as properties of the result object
   
          result.title = $(this).find(".trb_outfit_relatedListTitle").text();
-         result.link ="<a href =https://www.chicagotribune.com"+$(this).find("a").attr("href")+"></a>";
+         result.link =$(this).find("a").attr("href");
          result.subject =$(this).find(".trb_outfit_group_list_item_brief").text();
-      
+        
   
         // Create a new Article using the `result` object 
         db.Article.create(result)
@@ -67,10 +67,23 @@ console.log(allArticles);
         res.json(err);
       });
   });
-
-app.post("/new",(req, res)=>{
-
-});
+//This grabs the id in the params and changes the record to saved, but how does the button know in the 
+//app.js file. 
+app.put("/save/:id",(req, res)=>{
+    db.Article.findByIdAndUpdate(req.params.id,{$set: {saved: true}},(err, updateArticle)=>{
+        if (err){
+        console.log(err);
+        
+        }else{
+        console.log({notes: updateArticle})
+          res.json(updateArticle);
+        }
+        
+        })
+        
+        
+        
+        });
 
 app.get("/delete/:id", (req,res)=>{
 res.send("this will delete one by ID")

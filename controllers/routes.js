@@ -35,11 +35,11 @@ app.get("/scrape", function(req, res) {
       });
   
       // Send a message to the client
-      res.send("Scrape Complete");
+      res.redirect("/articles");
     });
   });
 
-app.get("/",(req,res)=>{
+app.get("/articles",(req,res)=>{
     db.Article.find({}, function(err, allArticles){
         if(err){
           console.log(err)
@@ -48,7 +48,7 @@ app.get("/",(req,res)=>{
 console.log(allArticles);
         }
         
-          });
+          }).sort({_id: -1});
         
           });
 

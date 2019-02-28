@@ -1,8 +1,9 @@
       <div class="container">
-<nav>
+<nav class ="blue darken-4">
     <div class="nav-wrapper">
+     <a href="#!" class="brand-logo">Fauxcago Fibune</a>
       <ul class="right hide-on-med-and-down">
-        <li><a class="waves-effect waves-light btn-large">Get More News</a></li>
+        <li><a class="waves-effect waves-red btn-large">Get More News</a></li>
       </ul>
     </div>
   </nav>
@@ -16,15 +17,19 @@
      <h3>Summary:</h3><p>{{this.subject}}</p><button data-id="{{this._id}}"class ="saved">Delete</button>
 
      <h3>Comments:</h3> <div class="row">
-    <form class="col s12">
+   <form class="col s12"action="#">
+      <div class="row">
+       
+    <div class="row">
       <div class="row">
         <div class="input-field col s12">
           <textarea id="textarea1" class="materialize-textarea"></textarea>
           <label for="textarea1">Textarea</label>
+            <div class="btn"><span>Delete</span></div>
+        </div>
         </div>
       </div>
     </form>
-  </div>
   
       </p>
         {{/if}} {{/each}}

@@ -84,6 +84,23 @@ app.put("/save/:id",(req, res)=>{
         
         
         });
+        
+        
+// GET route for saved articles 
+app.get("/saved", (req, res) =>{
+    db.Article.find({}, function(err, allArticles){
+        if(err){
+          console.log(err)
+        }else{
+            res.render('saved', {articles:allArticles});
+console.log(allArticles);
+        }
+        
+          })
+        
+          });
+
+
 
 app.get("/delete/:id", (req,res)=>{
 res.send("this will delete one by ID")

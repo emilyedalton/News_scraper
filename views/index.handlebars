@@ -18,15 +18,14 @@
      <h3>Summary:</h3><p>{{this.subject}}</p><button data-id="{{this._id}}"class ="saved">Save</button>
 
      <h3>Comments:</h3> <div class="row">
-    <form class="col s12"action="#">
-      <div class="row">
-       
+    <form class="col s12"action="PUT">
+      <div class="row">  
     <div class="row">
       <div class="row">
         <div class="input-field col s12">
           <textarea id="textarea1" class="materialize-textarea"></textarea>
           <label for="textarea1">Textarea</label>
-            <div class="btn"><span>Add</span></div>
+            <div class ="addBtn" data-id="{{this._id}}"><span>Add</span></div>
         </div>
         </div>
       </div>

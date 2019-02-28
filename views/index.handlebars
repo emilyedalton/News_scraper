@@ -1,8 +1,15 @@
       <div class="container">
-
+<nav>
+    <div class="nav-wrapper">
+      <ul class="right hide-on-med-and-down">
+        <li><a class="waves-effect waves-light btn-large">Get More News</a></li>
+      </ul>
+    </div>
+  </nav>
     <h2>THIS IS THE NEWS!</h2>
- 
+ <div id ="newsDiv">
 <ul>
+    <button id = "button">hi</button>
       {{#each articles}}
       <h3>Title</h3><p>{{this.title}} 
           <h3>Link</h3>{{this.link}}
@@ -22,4 +29,4 @@
        {{/each}}
       </ul>
      </div>
-        
+      </div>  

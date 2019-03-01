@@ -10,7 +10,7 @@ The Fibune performs all of the basic functions of persistient storage.
 
 *  Creates data when users select the 'Get More News' button which scrapes the Chicago Tribune for headlines, urls, and summaries of stories and puts it into an object. Then using that object adds it to a collection defined in a Mongoose model. 
 
-![](images/scrape_save.png)
+![](Images/scrape_save.png)
 
 Data can be refreshed by clicking the same button, and will reflect the latest news on the Tribune's website. 
 
@@ -19,16 +19,16 @@ Data can be refreshed by clicking the same button, and will reflect the latest n
 
 *  Updates data in two ways: If a user clicks "save" on the "/articles" page a boolean value of saved will be changed from "false" to "true".
 
-![](images/save_button.png)
+![](Images/save_button.png)
 
 Displayed on the "/saved" page
 
 
-![](images/Sorted_result_saved.png)
+![](Images/Sorted_result_saved.png)
 
 Using the sort method in Mongoose. 
 
-![](images/sort_code.png)
+![](Images/sort_code.png)
 
 
 

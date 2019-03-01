@@ -32,7 +32,7 @@ Using the sort method in Mongoose.
 
 
 
- The articles with a value of "saved = true" are then filtered through the view engine, and displayed. 
+ The articles with a value of "saved = true" are then filtered through the Handlebars view engine using built in helpers and displayed. 
  
  * Deletes data when a user clicks "delete" in the "/saved" page which changes the "saved" value of that document from "false" back to "true". 
 

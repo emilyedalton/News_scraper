@@ -3,7 +3,7 @@
 $(document).on("click", ".btn-large", function(){   
 // $("#button").on("click",  function() {
 
-// console.log("I'm working");
+console.log("I'm working");
 //     $("#newsDiv").empty();
     $.getJSON("/scrape", function (data) {
 console.log(data);
@@ -12,6 +12,18 @@ console.log(data);
     // });
 });
 });
+$(document).on("click", "#save", function(){   
+    // $("#button").on("click",  function() {
+    
+    // console.log("I'm working");
+    //     $("#newsDiv").empty();
+        $.getJSON("/saved", function (data) {
+    console.log(data);
+    
+    
+        // });
+    });
+    });
      
         $(document).on("click", ".saved", function(){   
             let id = $(this).data("id");
@@ -39,6 +51,7 @@ $(document).on("click", ".addBtn", function() {
       method: "POST",
       url: "/articles/" + thisId,
       data: {
+        // Value taken from title input
         // Value taken from note textarea
         body: $(".materialize-textarea").val()
       }

@@ -26,7 +26,7 @@ app.get("/scrape", function(req, res) {
         db.Article.create(result)
           .then(function(dbArticle) {
             // View the added result in the console
-            console.log(dbArticle);
+            // console.log(dbArticle);
           })
           .catch(function(err) {
             // If an error occurred, log it
@@ -41,14 +41,17 @@ app.get("/scrape", function(req, res) {
 
 app.get("/articles",(req,res)=>{
     db.Article.find({}, function(err, allArticles){
-        if(err){
-          console.log(err)
-        }else{
+        // if(err){
+        //   console.log(err)
+        // }else{
+            // console.log("these are articles" + " " +allArticles);
             res.render('index', {articles:allArticles});
-console.log(allArticles);
-        }
+            console.log ("article result")
+
+// console.log(allArticles);
+        // }
         
-          }).sort({_id: -1});
+          }).sort({_id: -1}).populate("notes");
         
           });
 
@@ -57,7 +60,7 @@ console.log(allArticles);
     // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
     db.Article.findOne({ _id: req.params.id })
       // ..and populate all of the notes associated with it
-      .populate("note")
+      .populate("notes")
       .then(function(dbArticle) {
         // If we were able to successfully find an Article with the given id, send it back to the client
         res.json(dbArticle);
@@ -75,7 +78,7 @@ app.put("/save/:id",(req, res)=>{
         console.log(err);
         
         }else{
-        console.log({notes: updateArticle})
+        // console.log({notes: updateArticle})
           res.json(updateArticle);
         }
         
@@ -90,7 +93,7 @@ app.get("/saved", (req, res) =>{
           console.log(err)
         }else{
             res.render('saved', {articles:allArticles});
-console.log(allArticles);
+// console.log(allArticles);
         }
         
           })
@@ -102,7 +105,10 @@ console.log(allArticles);
 app.get("/delete/:id", (req,res)=>{
 res.send("this will delete one by ID")
 });
-app.post("/articles/:id", function(req, res) {
+
+
+
+app.post("/articles/:id", (req, res) => {
     // Create a new note and pass the req.body to the entry
     db.Note.create(req.body)
       .then(function(dbNote) {
@@ -120,4 +126,23 @@ app.post("/articles/:id", function(req, res) {
         res.json(err);
       });
   });
+
+  app.get("/comments",(req, res) =>{
+    // Find all users
+    db.Article.find({})
+      // Specify that we want to populate the retrieved articles with any associated comments
+      .populate("notes")
+      .then(function(dbArticls) {
+        // If able to successfully find and associate all Users and Notes, send them back to the client
+        res.render("index",notes);
+      })
+      .catch(function(err) {
+        // If an error occurs, send it back to the client
+        res.json(err);
+      });
+  });
+
+
+
+
 module.exports = app;

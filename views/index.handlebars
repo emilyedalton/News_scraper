@@ -1,21 +1,23 @@
       <div class="container">
 <nav class ="blue darken-4">
     <div class="nav-wrapper">
-    <a href="#!" class="brand-logo">Fauxcago Fibune</a>
+    <a href="/articles" class="brand-logo">Fauxcago Fibune</a>
       <ul class="right hide-on-med-and-down">
-        <li><a class="waves-effect waves-red btn-large">Get More News</a></li>
+        <li><a class="btn-large waves-effect waves-light red lighten" id ="scrape" >Get More News</a></li>         
+        <li><a href ="/saved"class="btn-large waves-effect waves-light red lighten" >See Saved Articles</a></li>
+
       </ul>
     </div>
   </nav>
 
-    <h2>THIS IS THE NEWS!</h2>
  <div id ="newsDiv">
 <ul>
       {{#each articles}}
-      <h3>Title</h3><p>{{this.title}} 
+      <h3>{{this.title}}</h3>
           <h3>Link</h3>
           <a href="https://www.chicagotribune.com{{this.link}}"target="_blank">Read</a>
-     <h3>Summary:</h3><p>{{this.subject}}</p><button data-id="{{this._id}}"class ="saved">Save</button>
+     <h3>Summary:</h3><p>{{this.subject}}</p>
+     <button data-id="{{this._id}}"class ="saved">Save</button>
 
      <h3>Comments:</h3> <div class="row">
     <form class="col s12"action="PUT">
@@ -25,8 +27,11 @@
         <div class="input-field col s12">
           <textarea id="textarea1" class="materialize-textarea"></textarea>
           <label for="textarea1">Textarea</label>
-            <div class ="addBtn" data-id="{{this._id}}"><span>Add</span></div>
-            {{this.note}}
+            <div class ="addBtn" data-id="{{this._id}}"><span >Add</span></div>
+            <div class = "commentsDiv">
+                <h3>This should have the comments</h3>
+            {{notes.body}}
+            </div>
         </div>
         </div>
       </div>

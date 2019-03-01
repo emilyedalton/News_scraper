@@ -1,24 +1,19 @@
 
 // $(document).ready(function() {
 $(document).on("click", ".btn-large", function(){   
-// $("#button").on("click",  function() {
 
-console.log("I'm working");
-//     $("#newsDiv").empty();
-    $.getJSON("/scrape", function (data) {
+$.getJSON("/scrape", function (data) {
 console.log(data);
-location.reload();
+// location.reload();
+
 
 
     // });
 });
 });
 $(document).on("click", "#save", function(){   
-    // $("#button").on("click",  function() {
     
-    // console.log("I'm working");
-    //     $("#newsDiv").empty();
-        $.getJSON("/saved", function (data) {
+    $.getJSON("/saved", function (data) {
     console.log(data);
     
     

@@ -64,33 +64,31 @@ app.get("/articles",(req,res)=>{
       .then(function(dbArticle) {
         // If we were able to successfully find an Article with the given id, send it back to the client
         res.json(dbArticle);
-      })
-      .catch(function(err) {
-        // If an error occurred, send it to the client
-        res.json(err);
+      }).catch(err =>{
+        res.status(500).end(err);
       });
+
   });
 //This grabs the id in the params and changes the record to saved, but how does the button know in the 
 //app.js file. 
 app.put("/save/:id",(req, res)=>{
     db.Article.findByIdAndUpdate(req.params.id,{$set: {saved: true}},(err, updateArticle)=>{
         if (err){
-        console.log(err);
-        
+            res.status(500).end(err);        
         }else{
         // console.log({notes: updateArticle})
           res.json(updateArticle);
         }
-        
-        })
+      
      
         });
+    });
                
 // GET route for saved articles 
 app.get("/saved", (req, res) =>{
     db.Article.find({}, function(err, allArticles){
         if(err){
-          console.log(err)
+            res.status(500).end(err);        
         }else{
             res.render('saved', {articles:allArticles});
 // console.log(allArticles);
@@ -105,7 +103,7 @@ app.get("/saved", (req, res) =>{
 app.put("/delete/:id",(req, res)=>{
     db.Article.findByIdAndUpdate(req.params.id,{$set: {saved: false}},(err, updateArticle)=>{
         if (err){
-        console.log(err);
+            res.status(500).end(err);        
         
         }else{
         // console.log({notes: updateArticle})
@@ -149,8 +147,8 @@ app.post("/articles/:id", (req, res) => {
       })
       .catch(function(err) {
         // If an error occurs, send it back to the client
-        res.json(err);
-      });
+        res.status(500).end(err);        
+    });
   });
 
 

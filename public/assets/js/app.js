@@ -7,6 +7,7 @@ console.log("I'm working");
 //     $("#newsDiv").empty();
     $.getJSON("/scrape", function (data) {
 console.log(data);
+location.reload();
 
 
     // });
@@ -39,7 +40,19 @@ $(document).on("click", "#save", function(){
               });
           }); 
 
-
+          $(document).on("click", ".delete", function(){   
+            let id = $(this).data("id");
+        
+            //PUT request.
+            $.ajax("/delete/" + id, {
+              type: "PUT",
+            }).then(
+              function () {
+                console.log("deleted");
+                // Reload the page to get the updated list
+                location.reload();
+              });
+          }); 
 
           // When you click the savenote button
 $(document).on("click", ".addBtn", function() {

@@ -102,9 +102,20 @@ app.get("/saved", (req, res) =>{
 
 
 
-app.get("/delete/:id", (req,res)=>{
-res.send("this will delete one by ID")
-});
+app.put("/delete/:id",(req, res)=>{
+    db.Article.findByIdAndUpdate(req.params.id,{$set: {saved: false}},(err, updateArticle)=>{
+        if (err){
+        console.log(err);
+        
+        }else{
+        // console.log({notes: updateArticle})
+          res.json(updateArticle);
+        }
+        
+        })
+     
+        });
+
 
 
 

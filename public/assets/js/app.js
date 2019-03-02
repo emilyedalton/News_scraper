@@ -1,10 +1,9 @@
 
-// $(document).ready(function() {
 $(document).on("click", ".btn-large", function(){   
 
 $.getJSON("/scrape", function (data) {
 console.log(data);
-// location.reload();
+location.reload();
 
 
 
@@ -49,29 +48,24 @@ $(document).on("click", "#save", function(){
               });
           }); 
 
-          // When you click the savenote button
 $(document).on("click", ".addBtn", function() {
-    // Grab the id associated with the article from the submit button
     let thisId = $(this).attr("data-id");
   
-    // Run a POST request to change the note, using what's entered in the inputs
     $.ajax({
       method: "POST",
       url: "/articles/" + thisId,
       data: {
-        // Value taken from title input
-        // Value taken from note textarea
+
         body: $(".materialize-textarea").val()
       }
     })
-      // With that done
       .then(function(data) {
-        // Log the response
         console.log(data);
       });
   
-    // Also, remove the values entered in the input and textarea for note entry
     $(".materialize-textarea").val("");
+    location.reload();
+
   });
             // });
     

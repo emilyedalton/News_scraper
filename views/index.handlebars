@@ -31,7 +31,6 @@
             <div class = "commentsDiv">
               <h5> ID number associated with the most recent comment!!!</h5><br>
                       {{this.note}}
-
         </div>
         </div>
       </div>
@@ -42,11 +41,13 @@
        {{/each}}
        </ul>
        
-      <h>Comments Feed</h3>
+      <h2>Comments Feed</h2>
       <div>
-       {{#each articles}}
-                {{!-- Emily, this should display the comments --}}
+        <p>some text here but nothing is working </p>
+          {{#each notes}}          
               <ul> 
+                {{this.body}}
+                
             {{/each}}
             </ul>
             </div>

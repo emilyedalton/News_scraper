@@ -6,7 +6,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-const MONGODB_URI = process.env.PORT || "mongodb://localhost/newtribtest";
+// const MONGODB_URI = process.env.PORT || "mongodb://localhost/newtribtest";
  
 mongoose.connect(MONGODB_URI);
 
@@ -28,7 +28,7 @@ app.set('view engine', 'handlebars');
 app.use(routes);
 
 // connect to db
-// mongoose.connect("mongodb://localhost/newtribtest", { useNewUrlParser: true });
+mongoose.connect(process.env.PORT || "mongodb://localhost/newtribtest");
 
 
 app.listen(PORT, function() {

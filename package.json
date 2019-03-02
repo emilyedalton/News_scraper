@@ -1,8 +1,16 @@
 {
-  "name": "news_scraper",
+  "name": "News_scraper",
   "version": "1.0.0",
-  "description": "",
+  "description": "[Fauxcago Fibune](#) is a data-persistient,full stack  NoSQL  application utilizing an MVC architecture and CRUD functionalities.",
   "main": "server.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "mongoose": "^5.4.16"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -11,17 +19,11 @@
     "type": "git",
     "url": "git+https://github.com/emilyedalton/News_scraper.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/emilyedalton/News_scraper/issues"
   },
-  "homepage": "https://github.com/emilyedalton/News_scraper#readme",
-  "dependencies": {
-    "axios": "^0.18.0",
-    "cheerio": "^1.0.0-rc.2",
-    "express": "^4.16.4",
-    "express-handlebars": "^3.0.1",
-    "mongoose": "^5.4.15"
-  }
+  "homepage": "https://github.com/emilyedalton/News_scraper#readme"
 }

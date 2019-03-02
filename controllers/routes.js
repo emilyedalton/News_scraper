@@ -45,23 +45,23 @@ app.get("/", (req, res) => {
     //Emily, populate is a method to show the detail of the child
     //note in articles collections. In index.handlebars, I reference
     //note.body to display the comments.
-    db.Article.find({}).populate("note").exec(
-      function (err, allArticles) {
-        if (err) {
-            res.status(500).end(err);
-        } else {
-            res.render('index', { articles: allArticles });
-        console.log("article result")
-        }
-
-    });
+    db.Article.find({}).populate("note").sort({ _id: -1 }).limit(20).exec(
+        function (err, allArticles) {
+        // if(err){
+        //   console.log(err)
+        // }else{
+        // console.log("these are articles" + " " +allArticles);
   
-    //THIS How
-    // .sort({ _id: -1 });
+  
+        res.render('index', { articles: allArticles });
+        console.log("article result")
   
        
   
-});
+      }
+    );
+  
+  });
 
 // app.get("/articles", (req, res) => {
 //     db.Article.find({}, function (err, allArticles) {
@@ -80,7 +80,7 @@ app.get("/", (req, res) => {
 // });
 
 // Route for grabbing a specific Article by id, populate it with it's note
-app.get("/articles/:id", (req, res) => {
+app.get("/articles/:id", function (req, res) {
     db.Article.findOne({ _id: req.params.id })
         .populate("notes")
         .then(function (dbArticle) {

@@ -11,7 +11,7 @@
   </nav>
 
  <div id ="newsDiv">
-{{!-- <ul> --}}
+<ul>
       {{#each articles}}
     <h3>{{this.title}}</h3>
     <p>{{this.subject}}</p>
@@ -19,7 +19,7 @@
 <br>
      <button data-id="{{this._id}}"class ="saved">Save</button>
 
-     <h3>Comments:</h3> <div class="row">
+     <h5>Comments:</h5> <div class="row">
     <form class="col s12"action="PUT">
       <div class="row">  
     <div class="row">
@@ -29,43 +29,27 @@
           <label for="textarea1">Textarea</label>
             <div class ="addBtn" data-id="{{this._id}}"><span >Add</span></div>
             <div class = "commentsDiv">
-          
+              <h5> ID number associated with the most recent comment!!!</h5><br>
+                      {{this.note}}
+
         </div>
         </div>
       </div>
     </form>
   </div>
+  </div>
       </p>
        {{/each}}
-      </ul>
-            <h3>This should have the comments</h3>
+       </ul>
+       
+      <h>Comments Feed</h3>
+      <div>
+       {{#each articles}}
                 {{!-- Emily, this should display the comments --}}
-                <ul>
-            {{note.body}}
+              <ul> 
+            {{/each}}
             </ul>
             </div>
-     </div>
-      </div>  
-
-     {{!-- <h5>Comments:</h5> <div class="row">
-    <form class="col s12"action="PUT">
-      <div class="row">  
-    <div class="row">
-      <div class="row">
-        <div class="input-field col s12">
-          <textarea id="textarea1" class="materialize-textarea"></textarea>
-          <label for="textarea1">Textarea</label>
-            <div class ="addBtn" data-id="{{this._id}}"><span >Add</span></div>
-            <div class = "commentsDiv">
-            {{note.body}}
             </div>
-        </div>
-        </div>
-      </div>
-    </form>
-  </div>
-      </p>
-       {{/each}}
-      </ul>
-     </div>
-      </div>   --}}
+            
+      

@@ -4,9 +4,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 
+const PORT = process.env.PORT || 3000;
 
-const PORT = process.env.PORT || "mongodb://localhost/newtribtest";
+const MONGODB_URI = process.env.PORT || "mongodb://localhost/newtribtest";
  
+mongoose.connect(MONGODB_URI);
+
 const routes = require("./controllers/routes.js")
 // body parsing middleware
 

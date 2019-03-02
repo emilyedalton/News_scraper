@@ -36,6 +36,8 @@ Using the sort method in Mongoose.
  
  * Deletes data when a user clicks "delete" in the "/saved" page which changes the "saved" value of that document from "false" back to "true". 
 
+## Comments 
+At present, this application does not display the comments, but will display the associated ID from the comments tabe. The basic functionality is there, but 
 
 ## Technologies Used
 * [axios](https://github.com/axios/axios)

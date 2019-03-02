@@ -3,7 +3,7 @@ $(document).on("click", ".btn-large", function(){
 
 $.getJSON("/scrape", function (data) {
 console.log(data);
-location.reload();
+window.location.reload();
 
 
 
@@ -67,5 +67,4 @@ $(document).on("click", ".addBtn", function() {
     location.reload();
 
   });
-            // });
     

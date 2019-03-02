@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || "mongodb://localhost/newtribtest";
  
 const routes = require("./controllers/routes.js")
 // body parsing middleware
@@ -25,7 +25,7 @@ app.set('view engine', 'handlebars');
 app.use(routes);
 
 // connect to db
-mongoose.connect("mongodb://localhost/newtribtest", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/newtribtest", { useNewUrlParser: true });
 
 
 app.listen(PORT, function() {

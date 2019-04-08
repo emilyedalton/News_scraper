@@ -27,7 +27,7 @@ app.get("/scrape", function (req, res) {
                 });
         });
 
-        res.redirect("/articles");
+        res.redirect("/");
     });
 });
 
@@ -42,7 +42,7 @@ app.get("/", (req, res) => {
 
 
             res.render('index', { articles: allArticles });
-            console.log("article result")
+            console.log("article result", { articles: allArticles })
 
 
 

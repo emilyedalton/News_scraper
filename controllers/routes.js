@@ -6,30 +6,30 @@ app = express();
 db = require("../models");
 
 
-app.get("/scrape", function (req, res) {
-    axios.get("http://www.chicagotribune.com").then(function (response) {
-        var $ = cheerio.load(response.data);
+// app.get("/scrape", function (req, res) {
+//     axios.get("http://www.chicagotribune.com").then(function (response) {
+//         var $ = cheerio.load(response.data);
 
-        $(".trb_outfit_group_list_item_body").each(function (i, element) {
-            var result = {};
-
-
-            result.title = $(this).find(".trb_outfit_relatedListTitle").text();
-            result.link = $(this).find("a").attr("href");
-            result.subject = $(this).find(".trb_outfit_group_list_item_brief").text();
+//         $(".trb_outfit_group_list_item_body").each(function (i, element) {
+//             var result = {};
 
 
-            db.Article.create(result)
-                .then(function (dbArticle) {
-                })
-                .catch(function (err) {
-                    console.log(err);
-                });
-        });
+//             result.title = $(this).find(".trb_outfit_relatedListTitle").text();
+//             result.link = $(this).find("a").attr("href");
+//             result.subject = $(this).find(".trb_outfit_group_list_item_brief").text();
 
-        res.redirect("/");
-    });
-});
+
+//             db.Article.create(result)
+//                 .then(function (dbArticle) {
+//                 })
+//                 .catch(function (err) {
+//                     console.log(err);
+//                 });
+//         });
+
+//         res.redirect("/");
+//     });
+// });
 
 app.get("/", (req, res) => {
 
@@ -131,7 +131,6 @@ app.get("/comments", (req, res) => {
             res.status(500).end(err);
         });
 });
-
 
 
 

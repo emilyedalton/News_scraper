@@ -1,11 +1,23 @@
-          <div class="navbar-fixed">
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+</ul>
+<div class="navbar-fixed">
 
 <nav class ="blue darken-4">
     <div class="nav-wrapper">
-    <a href="/" id ="myBrand"class="brand-logo">Fauxcago Fibune</a>
+       <ul class="left hide-on-med-and-down">
+
+       <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">
+reorder
+</i></a></li>
+</ul>
+    <a href="/" id ="myBrand"class="brand-logo center">Fauxcago Fibune</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href ="/scrape" class="btn-large waves-effect waves-light red lighten" id ="scrape" >Get More News</a></li>         
-        <li><a href ="/saved"class="btn-large waves-effect waves-light red lighten" >See Saved Articles</a></li>
+        <li><a href ="/scrape" class="btn-small waves-effect waves-light red lighten" id ="scrape" >Get More News</a></li>         
+        <li><a href ="/saved"class="btn-small waves-effect waves-light red lighten" >See Saved Articles</a></li>
 
       </ul>
     </div>
@@ -23,7 +35,7 @@
      <button data-id="{{this._id}}"class ="saved">Save</button>
 
      <h5>Comments:</h5> <div class="row">
-    <form class="col s12"action="PUT">
+    <form class="col s12"action="POST">
       <div class="row">  
     <div class="row">
       <div class="row">

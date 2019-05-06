@@ -2,5 +2,11 @@
 #myBrand{
    
     font-family: 'UnifrakturMaguntia', cursive;
+    font-size: 2rem;
 
+}
+
+.navbar-fixed {
+    height: 50px;
+    line-height: 50px;
 }

@@ -42,7 +42,7 @@ app.get("/", (req, res) => {
 
 
             res.render('index', { articles: allArticles });
-            console.log("article result", { articles: allArticles })
+            // console.log("article result", { articles: allArticles })
 
 
 
@@ -109,11 +109,13 @@ app.put("/delete/:id", (req, res) => {
 app.post("/articles/:id", (req, res) => {
     db.Note.create(req.body)
         .then(function (dbNote) {
+            console.log("this is the note result", dbNote);
 
-            return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
+        return db.Article.findOneAndUpdate({ _id: req.params.id }, { $push: {note: dbNote.body }}, { new: true });
         })
         .then(function (dbArticle) {
             res.json(dbArticle);
+            console.log( "this is the article result" , dbArticle);
         })
         .catch(function (err) {
             res.json(err);
